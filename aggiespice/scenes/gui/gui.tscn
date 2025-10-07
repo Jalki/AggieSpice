@@ -1,0 +1,116 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd26ndrgwcn4l"]
+
+[ext_resource type="Script" path="res://code/Ui/gui.gd" id="1_0ax0i"]
+[ext_resource type="PackedScene" uid="uid://yv5jr0etxgws" path="res://scenes/client/sim_manager.tscn" id="2_gekcl"]
+[ext_resource type="Script" path="res://code/Ui/component_gui.gd" id="2_q37q0"]
+
+[node name="Main" type="CanvasLayer"]
+script = ExtResource("1_0ax0i")
+
+[node name="Top_Gui" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 50.0
+
+[node name="Top_Hbox" type="HBoxContainer" parent="Top_Gui"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="tFileBtn" type="MenuButton" parent="Top_Gui/Top_Hbox"]
+custom_minimum_size = Vector2(25, 5)
+layout_mode = 2
+text = "File"
+item_count = 4
+popup/item_0/text = "New Project"
+popup/item_1/text = "New Schematic"
+popup/item_1/id = 1
+popup/item_2/text = "Load Project"
+popup/item_2/id = 2
+popup/item_3/text = "New Schematic"
+popup/item_3/id = 3
+
+[node name="VSeparator" type="VSeparator" parent="Top_Gui/Top_Hbox"]
+layout_mode = 2
+
+[node name="tEditBtn" type="MenuButton" parent="Top_Gui/Top_Hbox"]
+custom_minimum_size = Vector2(25, 5)
+layout_mode = 2
+text = "Edit"
+
+[node name="VSeparator2" type="VSeparator" parent="Top_Gui/Top_Hbox"]
+layout_mode = 2
+
+[node name="tViewBtn" type="MenuButton" parent="Top_Gui/Top_Hbox"]
+custom_minimum_size = Vector2(25, 5)
+layout_mode = 2
+text = "View"
+
+[node name="VSeparator3" type="VSeparator" parent="Top_Gui/Top_Hbox"]
+layout_mode = 2
+
+[node name="tToolsBtn" type="MenuButton" parent="Top_Gui/Top_Hbox"]
+custom_minimum_size = Vector2(25, 5)
+layout_mode = 2
+text = "Tools"
+
+[node name="VSeparator4" type="VSeparator" parent="Top_Gui/Top_Hbox"]
+layout_mode = 2
+
+[node name="tToolsBtn2" type="MenuButton" parent="Top_Gui/Top_Hbox"]
+custom_minimum_size = Vector2(25, 5)
+layout_mode = 2
+text = "AI"
+
+[node name="VSeparator5" type="VSeparator" parent="Top_Gui/Top_Hbox"]
+layout_mode = 2
+
+[node name="FileSystem_Gui" type="Panel" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 49.0
+offset_right = 121.0
+grow_vertical = 2
+
+[node name="Component_Gui" type="Panel" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -197.0
+offset_top = 49.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("2_q37q0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Component_Gui"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 197.0
+offset_bottom = 40.0
+
+[node name="pSearchLabel" type="Label" parent="Component_Gui/HBoxContainer"]
+layout_mode = 2
+text = "Parts Search:"
+
+[node name="pSearchLineEdit" type="LineEdit" parent="Component_Gui/HBoxContainer"]
+layout_mode = 2
+
+[node name="SchematicArea" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.337
+anchor_top = 0.5
+anchor_right = 0.62
+anchor_bottom = 0.662
+offset_left = -269.224
+offset_top = -269.0
+offset_right = 237.76
+offset_bottom = 219.024
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Simulation_Manager" parent="." instance=ExtResource("2_gekcl")]
