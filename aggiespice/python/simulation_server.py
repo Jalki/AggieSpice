@@ -3,6 +3,7 @@ import json
 import threading
 import numpy as np
 from contextlib import closing
+import Dataset as dset # Custom dataset module for circuit data generation
 
 #This function checks for an available port and returns it
 def find_available_port(start_port=9090, max_attempts=10):
@@ -214,6 +215,16 @@ def run_self_test(server_port):
         print(f"❌ Self-test error: {e}")
         return False
 
+# Function to generate sample datasets using the Dataset module
+def generate_sample_datasets():
+    """Generate sample datasets using the Dataset module"""
+    print("Generating sample datasets...")
+    dset.process_data("RC")
+    dset.process_data("RL")
+    dset.process_data("RLC")
+    dset.process_data("VoltageDivider")
+    print("Sample datasets generated.")
+
 # Main function with user interaction, allowing configuration and starting the server
 # It also offers to run a self-test to verify everything is working before going live
 # Godot will connect to this server for simulations, replacing this main function in production
@@ -237,6 +248,13 @@ def main():
     
     # Create and start server
     server = SimulationServer(port=port, debug=debug_mode)
+
+    #This will generate sample datasets for AggieC.I.R.C.A to use if needed
+    gen_data = input("Generate sample datasets? (y/n): ").lower().strip()
+    if gen_data in ['y', 'yes', '1']:
+        generate_sample_datasets()
+    else:
+        print("Skipping dataset generation.")
     
     # Ask if user wants to run a self-test
     test_input = input("\nRun self-test before starting server? (y/n): ").lower().strip()
