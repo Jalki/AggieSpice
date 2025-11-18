@@ -4,6 +4,8 @@ import threading
 import numpy as np
 from contextlib import closing
 import Dataset as dset # Custom dataset module for circuit data generation
+import AggieC.I.R.C.A as circa  # Custom AI module for circuit analysis
+import LTSpice_dataset as lset  # Custom LTspice dataset generation module
 
 #This function checks for an available port and returns it
 def find_available_port(start_port=9090, max_attempts=10):
@@ -224,6 +226,13 @@ def generate_sample_datasets():
     dset.process_data("RLC")
     dset.process_data("VoltageDivider")
     print("Sample datasets generated.")
+
+# Function to generate a physics simulation using LTspice and return data
+def generate_physical_datasets():
+    """Generate datasets using LTspice simulations"""
+    print("Generating physical simulation datasets...")
+    # Placeholder for actual LTspice dataset generation
+    run_ltspice = lset
 
 # Main function with user interaction, allowing configuration and starting the server
 # It also offers to run a self-test to verify everything is working before going live
