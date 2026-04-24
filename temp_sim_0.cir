@@ -1,0 +1,6 @@
+* Auto-generated netlist
+V1 in 0 DC 5
+R1 in out 100
+C1 out 0 1e-06
+.tran 0 10m
+.end

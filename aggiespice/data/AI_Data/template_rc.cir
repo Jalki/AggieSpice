@@ -1,17 +1,18 @@
 * RC Circuit Template with Editable R, C, and DC Voltage
+.options noop
 
 V1 in 0 DC {VDC}          ; Editable DC source
 R1 in mid {Rval}          ; Editable resistor
 C1 mid 0 {Cval}           ; Editable capacitor
 
-* Example analysis (use either transient or AC)
-* Uncomment one depending on your simulation needs:
-
-* Transient (step response)
-*.tran 0.1ms 10ms
-
+* ---- ANALYSIS ----
 * AC Sweep (frequency response)
 .ac dec 50 1 100k
+
+* Or transient (only pick one)
+* .tran 0.1ms 10ms
+
+.save V(mid)
 
 .backanno
 .end

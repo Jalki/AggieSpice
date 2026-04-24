@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="tFileBtn" type="MenuButton" parent="Top_Gui/Top_Hbox"]
-custom_minimum_size = Vector2(25, 5)
+custom_minimum_size = Vector2(50, 5)
 layout_mode = 2
 text = "File"
 item_count = 4
@@ -36,7 +36,7 @@ popup/item_3/id = 3
 layout_mode = 2
 
 [node name="tEditBtn" type="MenuButton" parent="Top_Gui/Top_Hbox"]
-custom_minimum_size = Vector2(25, 5)
+custom_minimum_size = Vector2(50, 5)
 layout_mode = 2
 text = "Edit"
 
@@ -44,7 +44,7 @@ text = "Edit"
 layout_mode = 2
 
 [node name="tViewBtn" type="MenuButton" parent="Top_Gui/Top_Hbox"]
-custom_minimum_size = Vector2(25, 5)
+custom_minimum_size = Vector2(50, 5)
 layout_mode = 2
 text = "View"
 
@@ -52,27 +52,31 @@ text = "View"
 layout_mode = 2
 
 [node name="tToolsBtn" type="MenuButton" parent="Top_Gui/Top_Hbox"]
-custom_minimum_size = Vector2(25, 5)
+custom_minimum_size = Vector2(50, 5)
 layout_mode = 2
 text = "Tools"
 
 [node name="VSeparator4" type="VSeparator" parent="Top_Gui/Top_Hbox"]
 layout_mode = 2
 
-[node name="tToolsBtn2" type="MenuButton" parent="Top_Gui/Top_Hbox"]
-custom_minimum_size = Vector2(25, 5)
+[node name="tAIBtn" type="MenuButton" parent="Top_Gui/Top_Hbox"]
+custom_minimum_size = Vector2(50, 5)
 layout_mode = 2
 text = "AI"
 
 [node name="VSeparator5" type="VSeparator" parent="Top_Gui/Top_Hbox"]
 layout_mode = 2
 
-[node name="FileSystem_Gui" type="Panel" parent="."]
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_top = 49.0
-offset_right = 121.0
-grow_vertical = 2
+[node name="tSimulateBtn" type="MenuButton" parent="Top_Gui/Top_Hbox"]
+layout_mode = 2
+text = "Simulate"
+
+[node name="VSeparator6" type="VSeparator" parent="Top_Gui/Top_Hbox"]
+layout_mode = 2
+
+[node name="tHelpBtn" type="MenuButton" parent="Top_Gui/Top_Hbox"]
+layout_mode = 2
+text = "Help"
 
 [node name="Component_Gui" type="Panel" parent="."]
 anchors_preset = 11
@@ -85,17 +89,34 @@ grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("2_q37q0")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Component_Gui"]
+[node name="scrollBox" type="HFlowContainer" parent="Component_Gui"]
 layout_mode = 0
-offset_top = 4.0
 offset_right = 197.0
-offset_bottom = 40.0
+offset_bottom = 597.0
 
-[node name="pSearchLabel" type="Label" parent="Component_Gui/HBoxContainer"]
+[node name="pSearchHbox" type="HBoxContainer" parent="Component_Gui/scrollBox"]
+layout_mode = 2
+
+[node name="pSearchLabel" type="Label" parent="Component_Gui/scrollBox/pSearchHbox"]
 layout_mode = 2
 text = "Parts Search:"
 
-[node name="pSearchLineEdit" type="LineEdit" parent="Component_Gui/HBoxContainer"]
+[node name="pSearchLineEdit" type="LineEdit" parent="Component_Gui/scrollBox/pSearchHbox"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Component_Gui/scrollBox"]
+custom_minimum_size = Vector2(0, 565)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Component_Gui/scrollBox/AspectRatioContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Component_Gui/scrollBox/AspectRatioContainer/ScrollContainer"]
+layout_direction = 1
 layout_mode = 2
 
 [node name="SchematicArea" type="Control" parent="."]
@@ -104,8 +125,8 @@ anchor_left = 0.337
 anchor_top = 0.5
 anchor_right = 0.62
 anchor_bottom = 0.662
-offset_left = -269.224
-offset_top = -269.0
+offset_left = -388.224
+offset_top = -275.0
 offset_right = 237.76
 offset_bottom = 219.024
 grow_horizontal = 2
